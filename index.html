@@ -3,168 +3,257 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ôn tập Lịch sử & Địa lí 7 - Giữa HKII</title>
+    <title>Ôn Tập Kiểm Tra Cuối Học Kỳ II - Lịch Sử & Địa Lí 7</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; background-color: #f0f2f5; color: #333; padding: 20px; }
-        .container { max-width: 900px; margin: auto; background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        h1, h2 { text-align: center; color: #1a5276; margin-bottom: 10px; }
-        .section-title { color: #a04000; border-left: 5px solid #a04000; padding-left: 15px; margin-top: 40px; text-transform: uppercase; }
-        .reference-box { background-color: #fef9e7; border: 1px solid #f39c12; padding: 20px; border-radius: 8px; margin: 20px 0; font-style: italic; font-size: 0.95em; }
-        .question { margin-bottom: 25px; padding: 15px; border-radius: 8px; transition: 0.3s; border-bottom: 1px solid #eee; }
-        .question:hover { background-color: #f9f9f9; }
-        .question-text { font-weight: bold; margin-bottom: 10px; display: block; }
-        .options label { display: block; margin-bottom: 10px; cursor: pointer; padding: 5px; border-radius: 4px; }
-        .options label:hover { background-color: #e8f4fd; }
-        input[type="text"] { width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 6px; font-size: 16px; margin-top: 5px; }
-        input[type="text"]:focus { border-color: #3498db; outline: none; }
-        .btn-container { text-align: center; margin-top: 40px; }
-        button { background-color: #28b463; color: white; border: none; padding: 15px 40px; font-size: 18px; border-radius: 30px; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        button:hover { background-color: #239b56; transform: translateY(-2px); }
-        .feedback { margin-top: 10px; font-weight: bold; display: none; padding: 10px; border-radius: 5px; }
-        .correct { background-color: #d4edda; color: #155724; }
-        .wrong { background-color: #f8d7da; color: #721c24; }
-        #final-score { text-align: center; font-size: 24px; margin-top: 20px; font-weight: bold; color: #1a5276; }
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --success-color: #27ae60;
+            --error-color: #e74c3c;
+            --bg-color: #f4f7f6;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--primary-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+        }
+
+        .quiz-info {
+            text-align: center;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .question-card {
+            margin-bottom: 25px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+
+        label {
+            padding: 10px;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            transition: background 0.2s;
+        }
+
+        label:hover {
+            background-color: #f0f7ff;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        #result {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            display: none;
+        }
+
+        /* Classes for result checking */
+        .correct {
+            background-color: #d4edda !important;
+            border-color: var(--success-color) !important;
+            color: #155724;
+        }
+
+        .incorrect {
+            background-color: #f8d7da !important;
+            border-color: var(--error-color) !important;
+            color: #721c24;
+        }
+
+        .correct-answer-hint {
+            font-size: 0.9em;
+            color: var(--success-color);
+            margin-top: 5px;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>NỘI DUNG ÔN TẬP KIỂM TRA GIỮA HỌC KÌ II</h1>
-    <h2>Lịch sử - Địa lí 7 (2025 - 2026)</h2>
-
+    <h1>ÔN TẬP LỊCH SỬ & ĐỊA LÍ 7</h1>
+    <p class="quiz-info">Học kì II - Năm học 2025 - 2026. Làm lại trang để xáo trộn câu hỏi.</p>
+    
     <form id="quiz-form">
-        <h3 class="section-title">I. Câu hỏi trắc nghiệm (Câu 1 - 32)</h3>
-        <div id="mcq-section"></div>
-
-        <h3 class="section-title">II. Phần tư liệu tham khảo</h3>
-        <div class="reference-box">
-            <strong>Câu 33. Tư liệu về Thái Tông (nhà Trần):</strong><br>
-            "...tài lược hơn người, làm quan triều Lý được mọi người suy tôn. Thái Tông (nhà Trần) lấy được thiên hạ đều nhờ vào mưu sức của ông cả..." 
-            <br><em>(Đại Việt sử ký toàn thư, tập 2, NXB Khoa học Xã hội, Hà Nội, 1998, trang 34)</em>
-        </div>
-
-        <div class="reference-box">
-            <strong>Câu 34. Thông tin về dãy Andes:</strong><br>
-            "...Dãy Andes là dãy núi dài nhất thế giới trên đất liền, kéo dài khoảng 7.000 km dọc theo bờ tây của lục địa South America. Dãy núi này đi qua nhiều quốc gia như Peru, Bolivia, Chile và Argentina. Trong dãy Andes có nhiều đỉnh núi rất cao, tiêu biểu là Aconcagua cao khoảng 6.959 m, là đỉnh núi cao nhất châu Mỹ. Địa hình của Andes rất đa dạng, gồm núi cao, cao nguyên, thung lũng sâu, sông, hồ và nhiều núi lửa. Một số khu vực phía nam còn có sông băng và thung lũng băng hà, tạo nên cảnh quan thiên nhiên hùng vĩ. Khí hậu ở Andes thay đổi rõ rệt theo độ cao và theo vĩ độ..."
-        </div>
-
-        <h3 class="section-title">III. Câu hỏi trả lời ngắn</h3>
-        <div id="short-answer-section"></div>
-
-        <div class="btn-container">
-            <button type="button" onclick="gradeQuiz()">Nộp bài & Kiểm tra kết quả</button>
-        </div>
-        <div id="final-score"></div>
+        <div id="quiz-container"></div>
+        <button type="button" onclick="submitQuiz()">Nộp bài & Xem kết quả</button>
     </form>
+
+    <div id="result"></div>
 </div>
 
 <script>
-    const mcqData = [
-        { q: "Ngô Quyền xưng vương vào năm nào?", o: ["938", "939", "968", "981"], a: 1 },
-        { q: "Người có công dẹp loạn 12 sứ quân, thống nhất đất nước là:", o: ["Đinh Bộ Lĩnh", "Lê Hoàn", "Ngô Quyền", "Lý Công Uẩn"], a: 0 },
-        { q: "Kinh đô của nhà nước Đại Cồ Việt được đặt ở:", o: ["Hoa Lư", "Cổ Loa", "Phong Châu", "Phú Xuân"], a: 0 },
-        { q: "Tầng lớp thống trị trong xã hội thời Ngô - Đinh - Tiền Lê là:", o: ["Địa chủ và nông dân tự canh", "Nông dân lĩnh canh và thợ thủ công", "Quan lại và một bộ phận nhà sư, đạo sĩ", "Vua, quan và một bộ phận nhà sư, đạo sĩ"], a: 3 },
-        { q: "Vua Đinh Tiên Hoàng đã đặt quốc hiệu nước ta là:", o: ["Đại Việt", "Đại Nam", "Đại Cồ Việt", "Việt Nam"], a: 2 },
-        { q: "Nhà Lý được thành lập năm nào?", o: ["1009", "1010", "1075", "1077"], a: 0 },
-        { q: "Vị vua đầu tiên của vương triều Lý là:", o: ["Lý Thái Tổ", "Lý Thái Tông", "Lý Thánh Tông", "Lý Nhân Tông"], a: 0 },
-        { q: "Năm 1054, vua Lý Thánh Tông đã đổi quốc hiệu thành:", o: ["Đại Cồ Việt", "Đại Nam", "Việt Nam", "Đại Việt"], a: 3 },
-        { q: "Bộ luật thành văn đầu tiên của nước ta là:", o: ["Quốc triều hình luật", "Hoàng triều luật lệ", "Hình luật", "Hình thư"], a: 3 },
-        { q: "Công trình kiến trúc nổi tiếng thời Lý:", o: ["Chùa Diên Hựu", "Thành Tây Đô", "Chùa Thiên Mụ", "Thành Phú Xuân"], a: 0 },
-        { q: "Thiền phái do Phật hoàng Trần Nhân Tông sáng lập là:", o: ["Thảo Đường", "Mật tông", "Tịnh Độ tông", "Trúc Lâm Yên Tử"], a: 3 },
-        { q: "Ông tổ thuốc Nam là:", o: ["Hải Thượng Lãn Ông", "Tuệ Tĩnh", "Tôn Thất Tùng", "Hồ Đắc Di"], a: 1 },
-        { q: "Chủ trương xây dựng quân đội nhà Trần là:", o: ["Cốt đông đảo", "Chú trọng thủy quân", "Cốt tinh nhuệ, không cốt đông", "Vũ khí hiện đại"], a: 2 },
-        { q: "Tác phẩm quân sự nổi tiếng thời Trần:", o: ["Hổ trướng khu cơ", "Binh pháp Tôn Tử", "Binh thư yếu lược", "Quân trung từ mệnh tập"], a: 2 },
-        { q: "Bộ quốc sử đầu tiên của Đại Việt:", o: ["Đại Việt sử kí", "Đại Nam thực lục", "Đại Việt sử kí toàn thư", "Đại Việt sử lược"], a: 0 },
-        { q: "Ai là người tìm ra châu Mỹ đầu tiên?", o: ["C. Cô-lôm-bô", "Galile", "Niu-tơn", "Va-xin-mu-lơ"], a: 0 },
-        { q: "Diện tích châu Mỹ khoảng:", o: ["45,2 triệu km²", "42 triệu km²", "41,5 triệu km²", "48 triệu km²"], a: 1 },
-        { q: "Châu Mỹ được chia làm mấy khu vực?", o: ["3 khu vực", "5 khu vực", "2 khu vực", "4 khu vực"], a: 2 },
-        { q: "Ý nghĩa việc tìm ra châu Mỹ về hình dạng Trái Đất:", o: ["Khẳng định dạng hình cầu", "Khẳng định dạng hình vuông", "Khẳng định dạng hình tròn", "Khẳng định hình elip"], a: 0 },
-        { q: "Dãy núi cao đồ sộ nhất Bắc Mỹ là:", o: ["Coóc-đi-e", "Atlat", "Apalat", "Andet"], a: 0 },
-        { q: "Khí hậu Bắc Mỹ phân hóa theo chiều:", o: ["Bắc - Nam và Đông - Tây", "Đông - Tây", "Độ cao", "Bắc - Nam"], a: 0 },
-        { q: "Sông nào thuộc Bắc Mỹ?", o: ["Sông Mi-xi-xi-pi", "Sông Amazon", "Sông Công-gô", "Sông Nin"], a: 0 },
-        { q: "Kiểu khí hậu chiếm diện tích lớn nhất Bắc Mỹ:", o: ["Cận xích đạo", "Ôn đới", "Hàn đới", "Hoang mạc"], a: 1 },
-        { q: "Miền núi thấp và trung bình ở phía đông Bắc Mỹ gồm:", o: ["Dãy A-pa-lát và cao nguyên La-bra-đo", "Đồng bằng Lớn", "Hệ thống Cooc-đi-e", "Đồng bằng trung tâm"], a: 0 },
-        { q: "Khoáng sản khai thác chủ yếu ở Bắc Mỹ:", o: ["Đồng, sắt, chì", "Uran, kẽm", "Than, dầu mỏ, khí tự nhiên", "Thủy tinh, kim cương"], a: 2 },
-        { q: "Mục đích khai thác rừng ở Bắc Mỹ:", o: ["Sản xuất giấy và chế biến gỗ", "Dệt may", "Sản xuất giấy", "Xây dựng"], a: 0 },
-        { q: "Nguồn nước ngọt dồi dào ở Bắc Mỹ do:", o: ["Nhiều sông hồ lớn", "Đại dương bao quanh", "Mưa lớn", "Sông và đại dương"], a: 0 },
-        { q: "Cơ cấu kinh tế Bắc Mỹ:", o: ["Đa dạng nhiều ngành", "Công nghiệp khai thác", "Công nghiệp nhẹ", "Dịch vụ và chế biến"], a: 0 },
-        { q: "Trung tâm kinh tế Bắc Mỹ tập trung ở:", o: ["Phía Đông và Đông Bắc", "Phía Nam và Đông Nam", "Vùng trung tâm", "Phía Tây và Bắc"], a: 0 },
-        { q: "Nam Mỹ chia thành mấy khu vực địa hình?", o: ["2", "3", "4", "5"], a: 1 },
-        { q: "Dãy núi cao đồ sộ nhất Nam Mỹ:", o: ["Atlat", "Andet", "Himalaya", "Cooc-đi-e"], a: 1 },
-        { q: "Cực nam Nam Mỹ thuộc đới khí hậu:", o: ["Xích đạo", "Ôn đới", "Cận nhiệt", "Nhiệt đới"], a: 1 }
+    const questions = [
+        { q: "Nhà Trần đã cho ban hành bộ luật nào?", a: ["Hoàng Việt luật lệ", "Quốc triều hình luật", "Hoàng triều luật lệ", "Luật Hồng Đức"], correct: 1 },
+        { q: "Người có vai trò lớn dẫn đến sự thành lập của vương triều Trần là:", a: ["Trần Thủ Độ", "Trần Nhân Tông", "Trần Hưng Đạo", "Trần Thái Tông"], correct: 0 },
+        { q: "Tầng lớp đông đảo nhất trong xã hội thời Trần là", a: ["Quý tộc, quan lại", "Nông dân", "Thợ thủ công, thương nhân", "Nô tì"], correct: 1 },
+        { q: "Nội dung nào sau đây KHÔNG phản ánh đúng chính sách phục hồi và phát triển sản xuất nông nghiệp của nhà Trần?", a: ["Khuyến khích khai khẩn đất hoang", "Đào sông ngòi, đắp đê phòng lụt", "Cho phép tự ý giết mổ trâu, bò", "Đặt các chức quan nông nghiệp"], correct: 2 },
+        { q: "Nhà Hồ được thành lập vào năm nào?", a: ["1397", "1400", "1407", "1408"], correct: 1 },
+        { q: "Quốc hiệu của nước ta dưới thời Hồ là", a: ["Đại Việt", "Đại Ngu", "Đại Cồ Việt", "Đại Nam"], correct: 1 },
+        { q: "Nội dung nào dưới đây KHÔNG phản ánh đúng bối cảnh dẫn đến sự thành lập của nhà Hồ?", a: ["Kinh tế phát triển, đất nước thái bình, thịnh trị", "Nhà Trần khủng hoảng, suy yếu nghiêm trọng", "Kinh tế trì trệ, nạn mất mùa xảy ra liên tiếp", "Các cuộc khởi nghĩa của nông dân nổ ra khắp nơi"], correct: 0 },
+        { q: "Nhà Hồ đã dời kinh đô từ Thăng Long (Hà Nội) về", a: ["Hoa Lư (Ninh Bình)", "Phú Xuân (Huế)", "Lam Kinh (Thanh Hóa)", "Tây Đô (Thanh Hóa)"], correct: 3 },
+        { q: "Ai là người lãnh đạo tối cao của cuộc khởi nghĩa Lam Sơn?", a: ["Lê Lợi", "Nguyễn Trãi", "Nguyễn Xí", "Đinh Lễ"], correct: 0 },
+        { q: "Cuộc khởi nghĩa Lam Sơn thắng lợi đã mở ra một thời kì mới cho Đại Việt, đó là thời kì nào?", a: ["Thời Tiền Lê", "Thời Lê sơ", "Thời thuộc Minh", "Thời Lê trung hưng"], correct: 1 },
+        { q: "Từ năm 1424 - 1425, nghĩa quân Lam Sơn đã giải phóng một vùng rộng lớn từ", a: ["Thanh Hóa tới Nghệ An", "Nam Định đến Thanh Hóa", "Thanh Hóa đến đèo Hải Vân", "Nghệ An đến đèo Hải Vân"], correct: 2 },
+        { q: "Cuối năm 1427, nghĩa quân Lam Sơn đã giành chiến thắng ở", a: ["Ngọc Hồi - Đống Đa", "Tốt Động - Chúc Động", "Rạch Gầm - Xoài Mút", "Chi Lăng - Xương Giang"], correct: 3 },
+        { q: "Thời Lê sơ, kinh đô Thăng Long có bao nhiêu phố phường?", a: ["36 phố phường", "63 phố phường", "16 phố phường", "61 phố phường"], correct: 0 },
+        { q: "Hệ tư tưởng chiếm vị trí độc tôn dưới thời Lê sơ là", a: ["Phật giáo", "Đạo giáo", "Nho giáo", "Thiên Chúa giáo"], correct: 2 },
+        { q: "Thời Lê sơ, tầng lớp nô tì giảm dần do nhà nước", a: ["Ban hành chính sách hạn nô", "Quy định rõ số lượng nô tì của quan lại", "Quy định rõ số lượng nô tì của quý tộc", "Hạn chế nghiêm ngặt việc mua bán nô tì"], correct: 3 },
+        { q: "Vua Lê Thánh Tông cho biên soạn và ban hành bộ luật nào?", a: ["Luật Hồng Đức", "Luật Hình thư", "Hoàng Việt luật lệ", "Hoàng triều luật lệ"], correct: 0 },
+        { q: "Năm 1428, Lê Lợi lên ngôi Hoàng đế, khôi phục lại quốc hiệu", a: ["Đại Cồ Việt", "Vạn Xuân", "Đại Việt", "Đại Ngu"], correct: 2 },
+        { q: "Khí hậu Bắc Mỹ phân hóa như thế nào?", a: ["Bắc - nam và đông - tây", "Theo chiều đông - tây", "Theo độ cao", "Theo chiều bắc - nam"], correct: 0 },
+        { q: "Địa hình Bắc Mỹ theo thứ tự từ Đông sang Tây, lần lượt gồm:", a: ["Núi trẻ, núi già, đồng bằng lớn", "Núi già, đồng bằng lớn, núi trẻ", "Đồng bằng lớn, núi trẻ, núi già", "Núi trẻ, đồng bằng lớn, núi già"], correct: 1 },
+        { q: "Hệ thống núi Cooc-di-e nằm ở phía Tây Bắc Mỹ và chạy theo hướng nào?", a: ["Tây Bắc - Đông Nam", "Đông - Tây", "Bắc - Nam", "Đông Bắc - Tây Nam"], correct: 2 },
+        { q: "Xao Pao-lô là thành phố đông dân nhất ở Nam Mỹ, thuộc quốc gia nào?", a: ["Pa-ra-goay", "Ac-hen-ti-na", "Vê-nê-xu-ê-la", "Bra-xin"], correct: 3 },
+        { q: "Lễ hội Ca-na-van ở Nam Mỹ diễn ra hàng năm ở quốc gia nào?", a: ["Ac-hen-ti-na", "Pa-ra-goay", "Vê-nê-xu-ê-la", "Bra-xin"], correct: 3 },
+        { q: "Ngôn ngữ chính của người dân Trung và Nam Mỹ là gì?", a: ["Tiếng Tây Ban Nha và Tiếng Bồ Đào Nha (Hệ La-tinh)", "Tiếng Bồ Đào Nha", "Ngôn ngữ hệ La-tinh", "Tiếng Anh"], correct: 2 },
+        { q: "Tốc độ đô thị hóa nhanh ở Trung và Nam Mỹ là hệ quả nào?", a: ["Tốc độ đô thị hóa kinh tế nhanh", "Trình độ đô thị hóa cao", "Đô thị hóa tự phát", "Đô thị hóa có quy hoạch"], correct: 2 },
+        { q: "Dân cư Trung và Nam Mỹ bao gồm những thành phần nào?", a: ["Người bản địa và người nhập cư", "Người nhập cư và người lai", "Người bản địa và người lai", "Người bản địa, người nhập cư và người lai"], correct: 3 },
+        { q: "Rừng nào sau đây thuộc rừng nhiệt đới lớn nhất thế giới?", a: ["Rừng A-ma-zôn", "Rừng lá kim", "Rừng rậm thường xanh", "Rừng ôn đới"], correct: 0 },
+        { q: "Rừng A-ma-zôn không có đặc điểm nào sau đây?", a: ["Đất đai màu mỡ", "Mạng lưới sông ngòi dày đặc", "Nhiều khoáng sản có trữ lượng lớn", "Sinh vật nghèo nàn"], correct: 3 },
+        { q: "Diện tích rừng A-ma-zôn phần lớn tập trung ở quốc gia nào?", a: ["Bô-li-vi-a", "Cô-lôm-bi-a", "Bra-xin", "Guy-a-na"], correct: 2 },
+        { q: "Mức độ đa dạng sinh học ở rừng A-ma-zôn đạt ở mức", a: ["Rất cao", "Trung bình", "Thấp", "Rất thấp"], correct: 0 },
+        { q: "Châu Đại Dương nằm giữa hai đại dương nào?", a: ["Thái Bình Dương và Ấn Độ Dương", "Ấn Độ Dương và Đại Tây Dương", "Đại Tây Dương và Bắc Băng Dương", "Bắc Băng Dương và Thái Bình Dương"], correct: 0 },
+        { q: "Phần lớn diện tích Châu Đại Dương nằm ở bán cầu nào?", a: ["Bán cầu Bắc", "Bán cầu Tây", "Bán cầu Nam", "Bán cầu Đông"], correct: 2 },
+        { q: "Loài động vật là biểu tượng cho đất nước Ô-xtrây-li-a là gì?", a: ["Gấu trúc", "Chim cánh cụt", "Sư tử", "Căng-gu-ru"], correct: 3 }
     ];
 
-    const saData = [
-        { q: "Câu 33: Vua Đinh Tiên Hoàng đặt quốc hiệu nước ta là gì?", keywords: ["đại cồ việt"], correct: "Đại Cồ Việt" },
-        { q: "Câu 34: Vị vua đầu tiên của vương triều Lý là ai?", keywords: ["lý thái tổ", "lý công uẩn"], correct: "Lý Thái Tổ (Lý Công Uẩn)" },
-        { q: "Câu 35: Chính sách quân sĩ luân phiên vừa luyện tập vừa cày ruộng thời Lý là gì?", keywords: ["ngụ binh ư nông"], correct: "Chính sách Ngụ binh ư nông" },
-        { q: "Câu 36: Dãy núi cao đồ sộ nhất Bắc Mỹ là dãy núi nào?", keywords: ["coóc-đi-e", "cooc-di-e"], correct: "Dãy núi Coóc-đi-e" },
-        { q: "Câu 37: Việc tìm ra châu Mỹ khẳng định điều gì về hình dạng Trái Đất?", keywords: ["hình cầu"], correct: "Khẳng định Trái Đất có dạng hình cầu" },
-        { q: "Câu 38: Đới khí hậu nào chiếm diện tích lớn nhất ở Bắc Mỹ?", keywords: ["ôn đới"], correct: "Đới khí hậu Ôn đới" }
-    ];
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
 
-    // Render Trắc nghiệm
-    const mcqContainer = document.getElementById('mcq-section');
-    mcqData.forEach((item, i) => {
-        let optionsHtml = item.o.map((opt, idx) => 
-            `<label><input type="radio" name="mcq${i}" value="${idx}"> ${String.fromCharCode(65 + idx)}. ${opt}</label>`
-        ).join('');
-        mcqContainer.innerHTML += `
-            <div class="question" id="mcq-q${i}">
-                <span class="question-text">Câu ${i+1}: ${item.q}</span>
-                <div class="options">${optionsHtml}</div>
-                <div class="feedback" id="fb-mcq${i}"></div>
-            </div>`;
-    });
-
-    // Render Trả lời ngắn
-    const saContainer = document.getElementById('short-answer-section');
-    saData.forEach((item, i) => {
-        saContainer.innerHTML += `
-            <div class="question" id="sa-q${i}">
-                <span class="question-text">${item.q}</span>
-                <input type="text" id="sa-input${i}" placeholder="Gõ câu trả lời vào đây...">
-                <div class="feedback" id="fb-sa${i}"></div>
-            </div>`;
-    });
-
-    function gradeQuiz() {
-        let score = 0;
+    function renderQuiz() {
+        const quizContainer = document.getElementById('quiz-container');
+        shuffleArray(questions);
         
-        // Chấm MCQ
-        mcqData.forEach((item, i) => {
-            const selected = document.querySelector(`input[name="mcq${i}"]:checked`);
-            const fb = document.getElementById(`fb-mcq${i}`);
-            fb.style.display = 'block';
-            if(selected && parseInt(selected.value) === item.a) {
-                score++;
-                fb.innerHTML = "Chính xác!";
-                fb.className = "feedback correct";
+        questions.forEach((item, index) => {
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            card.id = `q-card-${index}`;
+            
+            let optionsHTML = '';
+            item.a.forEach((opt, optIndex) => {
+                optionsHTML += `
+                    <label id="label-${index}-${optIndex}">
+                        <input type="radio" name="q${index}" value="${optIndex}">
+                        ${String.fromCharCode(65 + optIndex)}. ${opt}
+                    </label>
+                `;
+            });
+
+            card.innerHTML = `
+                <span class="question-text">Câu ${index + 1}: ${item.q}</span>
+                <div class="options">
+                    ${optionsHTML}
+                </div>
+                <div id="feedback-${index}"></div>
+            `;
+            quizContainer.appendChild(card);
+        });
+    }
+
+    function submitQuiz() {
+        let score = 0;
+        const resultDiv = document.getElementById('result');
+        
+        questions.forEach((item, index) => {
+            const selected = document.querySelector(`input[name="q${index}"]:checked`);
+            const feedback = document.getElementById(`feedback-${index}`);
+            const card = document.getElementById(`q-card-${index}`);
+            
+            // Reset styles
+            const labels = document.querySelectorAll(`[id^="label-${index}-"]`);
+            labels.forEach(l => l.className = '');
+
+            if (selected) {
+                const userAns = parseInt(selected.value);
+                if (userAns === item.correct) {
+                    score++;
+                    document.getElementById(`label-${index}-${userAns}`).className = 'correct';
+                } else {
+                    document.getElementById(`label-${index}-${userAns}`).className = 'incorrect';
+                    document.getElementById(`label-${index}-${item.correct}`).className = 'correct';
+                }
             } else {
-                fb.innerHTML = `Sai rồi. Đáp án đúng là: ${String.fromCharCode(65 + item.a)}`;
-                fb.className = "feedback wrong";
+                // Nếu không chọn, vẫn hiện đáp án đúng
+                document.getElementById(`label-${index}-${item.correct}`).className = 'correct';
+                feedback.innerHTML = `<p style="color:red; font-size:0.8em;">Bạn chưa trả lời câu này</p>`;
             }
         });
 
-        // Chấm Trả lời ngắn
-        saData.forEach((item, i) => {
-            const val = document.getElementById(`sa-input${i}`).value.toLowerCase();
-            const fb = document.getElementById(`fb-sa${i}`);
-            fb.style.display = 'block';
-            const isCorrect = item.keywords.some(kw => val.includes(kw));
-            if(isCorrect) {
-                score++;
-                fb.innerHTML = "Chính xác!";
-                fb.className = "feedback correct";
-            } else {
-                fb.innerHTML = `Gợi ý đáp án: ${item.correct}`;
-                fb.className = "feedback wrong";
-            }
-        });
-
-        document.getElementById('final-score').innerHTML = `Kết quả: ${score} / ${mcqData.length + saData.length} câu đúng`;
+        resultDiv.style.display = 'block';
+        resultDiv.innerHTML = `Kết quả: ${score}/${questions.length} câu đúng (${((score/questions.length)*10).toFixed(2)} điểm)`;
+        resultDiv.style.backgroundColor = score > (questions.length/2) ? '#d4edda' : '#f8d7da';
+        
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+
+    window.onload = renderQuiz;
 </script>
 
 </body>
