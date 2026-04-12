@@ -3,258 +3,326 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ôn Tập Kiểm Tra Cuối Học Kỳ II - Lịch Sử & Địa Lí 7</title>
+    <title>Ôn tập Sinh học - Bài 30 & 32</title>
     <style>
         :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --success-color: #27ae60;
-            --error-color: #e74c3c;
+            --primary-color: #4CAF50;
             --bg-color: #f4f7f6;
+            --text-color: #333;
+            --border-color: #ddd;
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--bg-color);
-            color: var(--primary-color);
+            color: var(--text-color);
             line-height: 1.6;
-            margin: 0;
             padding: 20px;
-        }
-
-        .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
         h1 {
             text-align: center;
             color: var(--primary-color);
-            border-bottom: 2px solid var(--secondary-color);
+            border-bottom: 2px solid var(--primary-color);
             padding-bottom: 10px;
+            margin-bottom: 30px;
         }
 
-        .quiz-info {
-            text-align: center;
-            margin-bottom: 30px;
-            font-style: italic;
+        .instruction {
+            background: #fff3cd;
+            padding: 15px;
+            border-left: 5px solid #ffc107;
+            border-radius: 5px;
+            margin-bottom: 20px;
         }
 
         .question-card {
-            margin-bottom: 25px;
-            padding: 15px;
-            border: 1px solid #ddd;
+            background: white;
+            padding: 20px;
             border-radius: 8px;
-            transition: all 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            border-left: 4px solid transparent;
         }
 
-        .question-text {
-            font-weight: bold;
-            margin-bottom: 12px;
+        .question-card h3 {
+            margin-top: 0;
+            font-size: 1.1em;
+            color: #2c3e50;
+        }
+
+        .options label {
             display: block;
-        }
-
-        .options {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 10px;
-        }
-
-        label {
-            padding: 10px;
-            border: 1px solid #eee;
-            border-radius: 5px;
+            margin-bottom: 10px;
             cursor: pointer;
-            display: block;
+            padding: 8px;
+            border-radius: 4px;
             transition: background 0.2s;
         }
 
-        label:hover {
-            background-color: #f0f7ff;
+        .options label:hover {
+            background: #f0f0f0;
         }
 
-        input[type="radio"] {
-            margin-right: 10px;
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 1em;
+        }
+
+        .btn-container {
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 50px;
         }
 
         button {
-            display: block;
-            width: 100%;
-            padding: 15px;
-            background-color: var(--secondary-color);
+            background-color: var(--primary-color);
             color: white;
             border: none;
-            border-radius: 8px;
-            font-size: 18px;
-            font-weight: bold;
+            padding: 12px 30px;
+            font-size: 1.2em;
+            border-radius: 5px;
             cursor: pointer;
-            margin-top: 20px;
+            transition: background 0.3s;
+            margin: 0 10px;
         }
 
         button:hover {
-            background-color: #2980b9;
+            background-color: #45a049;
+        }
+
+        button#btn-reload {
+            background-color: #2196F3;
+        }
+
+        button#btn-reload:hover {
+            background-color: #0b7dda;
         }
 
         #result {
-            margin-top: 20px;
-            padding: 20px;
-            border-radius: 8px;
             text-align: center;
-            font-size: 20px;
+            font-size: 1.5em;
             font-weight: bold;
+            margin-top: 20px;
+            padding: 15px;
+            display: none;
+            border-radius: 8px;
+        }
+
+        .correct-card { border-left-color: #4CAF50; background-color: #e8f5e9; }
+        .incorrect-card { border-left-color: #f44336; background-color: #ffebee; }
+        
+        .feedback {
+            font-weight: bold;
+            margin-top: 10px;
             display: none;
         }
-
-        /* Classes for result checking */
-        .correct {
-            background-color: #d4edda !important;
-            border-color: var(--success-color) !important;
-            color: #155724;
-        }
-
-        .incorrect {
-            background-color: #f8d7da !important;
-            border-color: var(--error-color) !important;
-            color: #721c24;
-        }
-
-        .correct-answer-hint {
-            font-size: 0.9em;
-            color: var(--success-color);
-            margin-top: 5px;
-            font-weight: bold;
-        }
+        .correct-text { color: #4CAF50; }
+        .incorrect-text { color: #f44336; }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>ÔN TẬP LỊCH SỬ & ĐỊA LÍ 7</h1>
-    <p class="quiz-info">Học kì II - Năm học 2025 - 2026. Làm lại trang để xáo trộn câu hỏi.</p>
+    <h1>ÔN TẬP SINH HỌC - BÀI 30 & 32</h1>
     
+    <div class="instruction">
+        <strong>Hướng dẫn:</strong> 
+        <ul>
+            <li>Bộ đề gồm 40 câu hỏi (Trắc nghiệm và Điền khuyết).</li>
+            <li>Đối với câu điền khuyết, vui lòng gõ chữ thường, viết đúng chính tả tiếng Việt có dấu.</li>
+            <li>Làm mới trang (F5) để xáo trộn lại thứ tự câu hỏi.</li>
+        </ul>
+    </div>
+
     <form id="quiz-form">
-        <div id="quiz-container"></div>
-        <button type="button" onclick="submitQuiz()">Nộp bài & Xem kết quả</button>
+        <div id="quiz-container">
+            </div>
+
+        <div id="result"></div>
+
+        <div class="btn-container">
+            <button type="button" id="btn-submit" onclick="submitQuiz()">Nộp Bài</button>
+            <button type="button" id="btn-reload" onclick="location.reload()" style="display:none;">Làm Lại</button>
+        </div>
     </form>
 
-    <div id="result"></div>
-</div>
+    <script>
+        // Cơ sở dữ liệu 40 câu hỏi được trích xuất từ 2 hình ảnh
+        const allQuestions = [
+            // --- CÁC CÂU TỪ BÀI 32 VÀ LIÊN QUAN ---
+            { type: 'mcq', question: "Khái niệm cảm ứng ở sinh vật là gì?", options: ["Khả năng di chuyển tìm kiếm thức ăn.", "Khả năng tiếp nhận kích thích và phản ứng lại các kích thích từ môi trường.", "Khả năng sinh sản và duy trì nòi giống.", "Khả năng quang hợp tạo chất hữu cơ."], answer: 1 },
+            { type: 'fill', question: "Cảm ứng là đặc trưng của cơ thể sống, giúp sinh vật thích nghi với môi trường để tồn tại và ...", answer: "phát triển" },
+            { type: 'mcq', question: "Hiện tượng nào sau đây KHÔNG phải là cảm ứng ở sinh vật?", options: ["Cây nghiêng về phía có ánh sáng.", "Trời nóng người toát mồ hôi.", "Gió thổi làm cành cây gãy.", "Hoa mười giờ nở đúng giờ nhất định."], answer: 2 },
+            { type: 'mcq', question: "Cây xấu hổ (trinh nữ) cụp lá khi chạm vào là ví dụ về?", options: ["Cảm ứng ở thực vật", "Cảm ứng ở động vật", "Hướng sáng", "Hướng nước"], answer: 0 },
+            { type: 'fill', question: "Hiện tượng rút tay khi chạm vào vật nóng là ví dụ về hiện tượng ... ở người.", answer: "cảm ứng" },
+            { type: 'mcq', question: "Khi thấy đèn đỏ, người tham gia giao thông dừng lại. Đây là hiện tượng gì?", options: ["Phản xạ có điều kiện (cảm ứng ở người)", "Hướng tiếp xúc", "Hướng sáng", "Bản năng tự nhiên"], answer: 0 },
+            { type: 'mcq', question: "Tạo hình cho cây bonsai, trồng xen canh cây ưa sáng và ưa bóng là ứng dụng của tính gì ở thực vật?", options: ["Tính hướng nước", "Tính hướng sáng", "Tính hướng tiếp xúc", "Tính hướng trọng lực"], answer: 1 },
+            { type: 'mcq', question: "Trồng cây thủy sinh, cây gần bờ ao, mương nước là ứng dụng của tính gì?", options: ["Tính hướng nước", "Tính hướng sáng", "Tính hướng tiếp xúc", "Tính hướng hóa"], answer: 0 },
+            { type: 'fill', question: "Làm giàn cho các cây leo (bầu, bí, mướp,...) là ứng dụng tính hướng ... của thực vật.", answer: "tiếp xúc" },
+            { type: 'mcq', question: "Mục đích của việc trồng xen canh cây ưa sáng và ưa bóng là gì?", options: ["Tận dụng triệt để nguồn nước.", "Tận dụng triệt để nguồn ánh sáng.", "Tránh sâu bệnh.", "Tạo bóng mát cho con người."], answer: 1 },
+            { type: 'mcq', question: "Vì sao vào những ngày hè nắng nóng, đứng dưới bóng cây ta cảm thấy mát mẻ hơn so với khi đứng dưới mái che bằng bê tông?", options: ["Do cây quang hợp nhả khí oxygen và thoát hơi nước.", "Do cây có màu xanh làm dịu mắt.", "Do lá cây che kín hoàn toàn ánh nắng.", "Do bê tông tỏa nhiệt nhiều hơn."], answer: 0 },
+            { type: 'fill', question: "Khi trời nắng, quá trình quang hợp của lá cây nhả ra khí ... và hấp thu khí carbon dioxide.", answer: "oxygen" },
+            { type: 'mcq', question: "Sự thoát hơi nước ở lá cây có tác dụng gì đối với môi trường xung quanh?", options: ["Làm tăng nhiệt độ", "Làm giảm nhiệt độ", "Làm ô nhiễm không khí", "Làm tăng lượng CO2"], answer: 1 },
+            { type: 'mcq', question: "Vì sao trước khi trồng cây, người ta cần cày, xới, làm cho đất tơi, xốp?", options: ["Để tiêu diệt cỏ dại.", "Tạo độ thoáng khí cho đất, giúp rễ hấp thụ oxygen tốt hơn.", "Để đất trông đẹp hơn.", "Để giảm lượng nước trong đất."], answer: 1 },
+            { type: 'fill', question: "Khi rễ cây có đủ oxygen, rễ cây sẽ tiến hành quá trình ... mạnh, thuận lợi cho rễ hấp thụ nước và muối khoáng.", answer: "hô hấp" },
+            { type: 'mcq', question: "Đặc điểm nào KHÔNG có trong các biện pháp đảm bảo chế độ dinh dưỡng hợp lí?", options: ["Ăn quá nhiều để tích trữ năng lượng.", "Chế độ dinh dưỡng cân đối.", "Phù hợp với độ tuổi, giới tính.", "Sử dụng thực phẩm rõ nguồn gốc."], answer: 0 },
+            { type: 'mcq', question: "Việc rửa tay sạch trước khi ăn thuộc biện pháp nào?", options: ["Chế biến đúng cách", "Đảm bảo vệ sinh khi ăn uống", "Bảo vệ môi trường", "Chế độ dinh dưỡng cân đối"], answer: 1 },
+            { type: 'fill', question: "Chó nghe tiếng gọi thì chạy lại là một ví dụ về hiện tượng ... ở động vật.", answer: "cảm ứng" },
+            { type: 'mcq', question: "Cây đậu, cây bầu, mướp có tua cuốn quấn quanh giá thể là nhờ?", options: ["Hướng sáng", "Hướng nước", "Hướng tiếp xúc", "Hướng hóa"], answer: 2 },
+            { type: 'fill', question: "Để bảo vệ sức khỏe, môi trường sống cần được bảo vệ và không sử dụng hóa chất ...", answer: "độc hại" },
 
-<script>
-    const questions = [
-        { q: "Nhà Trần đã cho ban hành bộ luật nào?", a: ["Hoàng Việt luật lệ", "Quốc triều hình luật", "Hoàng triều luật lệ", "Luật Hồng Đức"], correct: 1 },
-        { q: "Người có vai trò lớn dẫn đến sự thành lập của vương triều Trần là:", a: ["Trần Thủ Độ", "Trần Nhân Tông", "Trần Hưng Đạo", "Trần Thái Tông"], correct: 0 },
-        { q: "Tầng lớp đông đảo nhất trong xã hội thời Trần là", a: ["Quý tộc, quan lại", "Nông dân", "Thợ thủ công, thương nhân", "Nô tì"], correct: 1 },
-        { q: "Nội dung nào sau đây KHÔNG phản ánh đúng chính sách phục hồi và phát triển sản xuất nông nghiệp của nhà Trần?", a: ["Khuyến khích khai khẩn đất hoang", "Đào sông ngòi, đắp đê phòng lụt", "Cho phép tự ý giết mổ trâu, bò", "Đặt các chức quan nông nghiệp"], correct: 2 },
-        { q: "Nhà Hồ được thành lập vào năm nào?", a: ["1397", "1400", "1407", "1408"], correct: 1 },
-        { q: "Quốc hiệu của nước ta dưới thời Hồ là", a: ["Đại Việt", "Đại Ngu", "Đại Cồ Việt", "Đại Nam"], correct: 1 },
-        { q: "Nội dung nào dưới đây KHÔNG phản ánh đúng bối cảnh dẫn đến sự thành lập của nhà Hồ?", a: ["Kinh tế phát triển, đất nước thái bình, thịnh trị", "Nhà Trần khủng hoảng, suy yếu nghiêm trọng", "Kinh tế trì trệ, nạn mất mùa xảy ra liên tiếp", "Các cuộc khởi nghĩa của nông dân nổ ra khắp nơi"], correct: 0 },
-        { q: "Nhà Hồ đã dời kinh đô từ Thăng Long (Hà Nội) về", a: ["Hoa Lư (Ninh Bình)", "Phú Xuân (Huế)", "Lam Kinh (Thanh Hóa)", "Tây Đô (Thanh Hóa)"], correct: 3 },
-        { q: "Ai là người lãnh đạo tối cao của cuộc khởi nghĩa Lam Sơn?", a: ["Lê Lợi", "Nguyễn Trãi", "Nguyễn Xí", "Đinh Lễ"], correct: 0 },
-        { q: "Cuộc khởi nghĩa Lam Sơn thắng lợi đã mở ra một thời kì mới cho Đại Việt, đó là thời kì nào?", a: ["Thời Tiền Lê", "Thời Lê sơ", "Thời thuộc Minh", "Thời Lê trung hưng"], correct: 1 },
-        { q: "Từ năm 1424 - 1425, nghĩa quân Lam Sơn đã giải phóng một vùng rộng lớn từ", a: ["Thanh Hóa tới Nghệ An", "Nam Định đến Thanh Hóa", "Thanh Hóa đến đèo Hải Vân", "Nghệ An đến đèo Hải Vân"], correct: 2 },
-        { q: "Cuối năm 1427, nghĩa quân Lam Sơn đã giành chiến thắng ở", a: ["Ngọc Hồi - Đống Đa", "Tốt Động - Chúc Động", "Rạch Gầm - Xoài Mút", "Chi Lăng - Xương Giang"], correct: 3 },
-        { q: "Thời Lê sơ, kinh đô Thăng Long có bao nhiêu phố phường?", a: ["36 phố phường", "63 phố phường", "16 phố phường", "61 phố phường"], correct: 0 },
-        { q: "Hệ tư tưởng chiếm vị trí độc tôn dưới thời Lê sơ là", a: ["Phật giáo", "Đạo giáo", "Nho giáo", "Thiên Chúa giáo"], correct: 2 },
-        { q: "Thời Lê sơ, tầng lớp nô tì giảm dần do nhà nước", a: ["Ban hành chính sách hạn nô", "Quy định rõ số lượng nô tì của quan lại", "Quy định rõ số lượng nô tì của quý tộc", "Hạn chế nghiêm ngặt việc mua bán nô tì"], correct: 3 },
-        { q: "Vua Lê Thánh Tông cho biên soạn và ban hành bộ luật nào?", a: ["Luật Hồng Đức", "Luật Hình thư", "Hoàng Việt luật lệ", "Hoàng triều luật lệ"], correct: 0 },
-        { q: "Năm 1428, Lê Lợi lên ngôi Hoàng đế, khôi phục lại quốc hiệu", a: ["Đại Cồ Việt", "Vạn Xuân", "Đại Việt", "Đại Ngu"], correct: 2 },
-        { q: "Khí hậu Bắc Mỹ phân hóa như thế nào?", a: ["Bắc - nam và đông - tây", "Theo chiều đông - tây", "Theo độ cao", "Theo chiều bắc - nam"], correct: 0 },
-        { q: "Địa hình Bắc Mỹ theo thứ tự từ Đông sang Tây, lần lượt gồm:", a: ["Núi trẻ, núi già, đồng bằng lớn", "Núi già, đồng bằng lớn, núi trẻ", "Đồng bằng lớn, núi trẻ, núi già", "Núi trẻ, đồng bằng lớn, núi già"], correct: 1 },
-        { q: "Hệ thống núi Cooc-di-e nằm ở phía Tây Bắc Mỹ và chạy theo hướng nào?", a: ["Tây Bắc - Đông Nam", "Đông - Tây", "Bắc - Nam", "Đông Bắc - Tây Nam"], correct: 2 },
-        { q: "Xao Pao-lô là thành phố đông dân nhất ở Nam Mỹ, thuộc quốc gia nào?", a: ["Pa-ra-goay", "Ac-hen-ti-na", "Vê-nê-xu-ê-la", "Bra-xin"], correct: 3 },
-        { q: "Lễ hội Ca-na-van ở Nam Mỹ diễn ra hàng năm ở quốc gia nào?", a: ["Ac-hen-ti-na", "Pa-ra-goay", "Vê-nê-xu-ê-la", "Bra-xin"], correct: 3 },
-        { q: "Ngôn ngữ chính của người dân Trung và Nam Mỹ là gì?", a: ["Tiếng Tây Ban Nha và Tiếng Bồ Đào Nha (Hệ La-tinh)", "Tiếng Bồ Đào Nha", "Ngôn ngữ hệ La-tinh", "Tiếng Anh"], correct: 2 },
-        { q: "Tốc độ đô thị hóa nhanh ở Trung và Nam Mỹ là hệ quả nào?", a: ["Tốc độ đô thị hóa kinh tế nhanh", "Trình độ đô thị hóa cao", "Đô thị hóa tự phát", "Đô thị hóa có quy hoạch"], correct: 2 },
-        { q: "Dân cư Trung và Nam Mỹ bao gồm những thành phần nào?", a: ["Người bản địa và người nhập cư", "Người nhập cư và người lai", "Người bản địa và người lai", "Người bản địa, người nhập cư và người lai"], correct: 3 },
-        { q: "Rừng nào sau đây thuộc rừng nhiệt đới lớn nhất thế giới?", a: ["Rừng A-ma-zôn", "Rừng lá kim", "Rừng rậm thường xanh", "Rừng ôn đới"], correct: 0 },
-        { q: "Rừng A-ma-zôn không có đặc điểm nào sau đây?", a: ["Đất đai màu mỡ", "Mạng lưới sông ngòi dày đặc", "Nhiều khoáng sản có trữ lượng lớn", "Sinh vật nghèo nàn"], correct: 3 },
-        { q: "Diện tích rừng A-ma-zôn phần lớn tập trung ở quốc gia nào?", a: ["Bô-li-vi-a", "Cô-lôm-bi-a", "Bra-xin", "Guy-a-na"], correct: 2 },
-        { q: "Mức độ đa dạng sinh học ở rừng A-ma-zôn đạt ở mức", a: ["Rất cao", "Trung bình", "Thấp", "Rất thấp"], correct: 0 },
-        { q: "Châu Đại Dương nằm giữa hai đại dương nào?", a: ["Thái Bình Dương và Ấn Độ Dương", "Ấn Độ Dương và Đại Tây Dương", "Đại Tây Dương và Bắc Băng Dương", "Bắc Băng Dương và Thái Bình Dương"], correct: 0 },
-        { q: "Phần lớn diện tích Châu Đại Dương nằm ở bán cầu nào?", a: ["Bán cầu Bắc", "Bán cầu Tây", "Bán cầu Nam", "Bán cầu Đông"], correct: 2 },
-        { q: "Loài động vật là biểu tượng cho đất nước Ô-xtrây-li-a là gì?", a: ["Gấu trúc", "Chim cánh cụt", "Sư tử", "Căng-gu-ru"], correct: 3 }
-    ];
+            // --- CÁC CÂU TỪ BÀI 30 VÀ LIÊN QUAN ---
+            { type: 'mcq', question: "Nhu cầu sử dụng nước ở động vật KHÔNG phụ thuộc vào yếu tố nào sau đây?", options: ["Nhiệt độ môi trường", "Màu sắc của con vật", "Cường độ hoạt động", "Giới tính và tình trạng sức khỏe"], answer: 1 },
+            { type: 'fill', question: "Nước được cung cấp cho động vật chủ yếu qua thức ăn và nước ...", answer: "uống" },
+            { type: 'mcq', question: "Nước thải ra khỏi cơ thể động vật thông qua các con đường nào?", options: ["Hô hấp, toát mồ hôi, bài tiết nước tiểu và phân", "Chỉ qua nước tiểu", "Chỉ qua toát mồ hôi", "Hô hấp và nước mắt"], answer: 0 },
+            { type: 'mcq', question: "Giai đoạn nào KHÔNG thuộc con đường thu nhận và tiêu hóa thức ăn trong ống tiêu hóa ở người?", options: ["Thu nhận, biến đổi thức ăn", "Hấp thụ các chất dinh dưỡng", "Thải các chất cặn bã", "Lọc máu ở thận"], answer: 3 },
+            { type: 'fill', question: "Thứ tự con đường vận chuyển các chất trong ống tiêu hóa: Miệng -> Thực quản -> Dạ dày -> ... -> Ruột già -> Trực tràng -> Hậu môn.", answer: "ruột non" },
+            { type: 'mcq', question: "Đâu là biện pháp bảo vệ sức khỏe hệ tiêu hóa?", options: ["Ăn uống vội vàng", "Nhịn ăn sáng", "Ăn uống đúng giờ, đúng bữa, nhai kĩ", "Ăn nhiều đồ chiên rán trước khi ngủ"], answer: 2 },
+            { type: 'fill', question: "Để quá trình tiêu hóa thức ăn được triệt để, khi ăn chúng ta cần ... kĩ.", answer: "nhai" },
+            { type: 'mcq', question: "Chất nào sau đây nếu ăn quá nhiều sẽ có hại cho cả hệ tiêu hóa và tuần hoàn?", options: ["Chất xơ", "Vitamin C", "Cholesterol, rượu bia", "Nước khoáng"], answer: 2 },
+            { type: 'fill', question: "Nên đánh ... sau khi ăn và buổi tối trước khi đi ngủ để bảo vệ tiêu hóa.", answer: "răng" },
+            { type: 'mcq', question: "Biện pháp nào sau đây giúp bảo vệ sức khỏe hệ tuần hoàn?", options: ["Hút thuốc lá", "Luyện tập thể dục thể thao thường xuyên", "Thức khuya", "Ăn nhiều mỡ động vật"], answer: 1 },
+            { type: 'fill', question: "Để bảo vệ tim mạch, không ăn quá nhiều thức ăn chứa hàm lượng ... động vật cao.", answer: "mỡ" },
+            { type: 'mcq', question: "Việc giữ trọng lượng cơ thể cân đối, ổn định có tác dụng chính bảo vệ hệ cơ quan nào (theo bài học)?", options: ["Hệ bài tiết", "Hệ tuần hoàn", "Hệ hô hấp", "Hệ sinh dục"], answer: 1 },
+            { type: 'mcq', question: "Cần tiêm phòng các bệnh có hại cho tim mạch như bệnh nào sau đây?", options: ["Cận thị, loạn thị", "Thương hàn, bạch hầu, cúm, thấp khớp", "Đau dạ dày", "Gãy xương"], answer: 1 },
+            { type: 'fill', question: "Con đường thu nhận và tiêu hoá thức ăn ở người kết thúc bằng việc thải các chất cặn bã qua ...", answer: "hậu môn" },
+            { type: 'mcq', question: "Trong con đường vận chuyển thức ăn, bộ phận nào nằm ngay sau dạ dày?", options: ["Thực quản", "Ruột non", "Ruột già", "Trực tràng"], answer: 1 },
+            { type: 'fill', question: "Nhu cầu nước ở động vật khác nhau tùy theo loài, nhiệt độ, loại thức ăn, giới tính, cường độ hoạt động và tình trạng ...", answer: "sức khỏe" },
+            { type: 'mcq', question: "Lí do chính không nên sử dụng các loại rượu, bia, chất kích thích là để?", options: ["Tiết kiệm tiền", "Bảo vệ sức khỏe hệ tuần hoàn và tiêu hóa", "Làm đẹp da", "Tăng cường thị lực"], answer: 1 },
+            { type: 'fill', question: "Trong các giai đoạn tiêu hoá thức ăn, sau khi biến đổi thức ăn là giai đoạn ... các chất dinh dưỡng.", answer: "hấp thụ" },
+            { type: 'mcq', question: "Theo bài 30, thức ăn đi từ ruột già sẽ tới đâu trước khi ra hậu môn?", options: ["Ruột non", "Dạ dày", "Trực tràng", "Thực quản"], answer: 2 },
+            { type: 'fill', question: "Ăn uống ... các thành phần dinh dưỡng là một biện pháp bảo vệ hệ tiêu hoá.", answer: "đủ" }
+        ];
 
-    function shuffleArray(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
+        let currentQuestions = [];
+
+        // Hàm xáo trộn mảng (Fisher-Yates)
+        function shuffleArray(array) {
+            let currentIndex = array.length, randomIndex;
+            while (currentIndex != 0) {
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex--;
+                [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+            }
+            return array;
         }
-    }
 
-    function renderQuiz() {
-        const quizContainer = document.getElementById('quiz-container');
-        shuffleArray(questions);
-        
-        questions.forEach((item, index) => {
-            const card = document.createElement('div');
-            card.className = 'question-card';
-            card.id = `q-card-${index}`;
+        // Render bài tập
+        function renderQuiz() {
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = '';
             
-            let optionsHTML = '';
-            item.a.forEach((opt, optIndex) => {
-                optionsHTML += `
-                    <label id="label-${index}-${optIndex}">
-                        <input type="radio" name="q${index}" value="${optIndex}">
-                        ${String.fromCharCode(65 + optIndex)}. ${opt}
-                    </label>
-                `;
+            // Lấy 40 câu và xáo trộn
+            currentQuestions = shuffleArray([...allQuestions]).slice(0, 40);
+
+            currentQuestions.forEach((q, index) => {
+                const card = document.createElement('div');
+                card.className = 'question-card';
+                card.id = `question-${index}`;
+
+                let html = `<h3>Câu ${index + 1}: ${q.question}</h3>`;
+
+                if (q.type === 'mcq') {
+                    html += `<div class="options">`;
+                    q.options.forEach((opt, i) => {
+                        html += `
+                            <label>
+                                <input type="radio" name="q${index}" value="${i}"> 
+                                ${opt}
+                            </label>
+                        `;
+                    });
+                    html += `</div>`;
+                } else if (q.type === 'fill') {
+                    html += `<input type="text" id="q${index}" placeholder="Nhập câu trả lời của bạn vào đây...">`;
+                }
+
+                // Chỗ để hiển thị đáp án sau khi nộp
+                html += `<div class="feedback" id="feedback-${index}"></div>`;
+                
+                card.innerHTML = html;
+                container.appendChild(card);
+            });
+        }
+
+        // Kiểm tra và tính điểm
+        function submitQuiz() {
+            let score = 0;
+            const total = currentQuestions.length;
+
+            currentQuestions.forEach((q, index) => {
+                const card = document.getElementById(`question-${index}`);
+                const feedback = document.getElementById(`feedback-${index}`);
+                let isCorrect = false;
+                let userAnswer = "";
+
+                if (q.type === 'mcq') {
+                    const selected = document.querySelector(`input[name="q${index}"]:checked`);
+                    if (selected) {
+                        userAnswer = parseInt(selected.value);
+                        if (userAnswer === q.answer) isCorrect = true;
+                    }
+                    // Disable radios
+                    document.querySelectorAll(`input[name="q${index}"]`).forEach(el => el.disabled = true);
+                } else if (q.type === 'fill') {
+                    const inputEl = document.getElementById(`q${index}`);
+                    userAnswer = inputEl.value.trim().toLowerCase();
+                    inputEl.disabled = true;
+                    
+                    // So sánh linh hoạt hơn một chút (bỏ khoảng trắng thừa)
+                    if (userAnswer === q.answer.toLowerCase()) {
+                        isCorrect = true;
+                    }
+                }
+
+                // Cập nhật UI
+                if (isCorrect) {
+                    score++;
+                    card.classList.add('correct-card');
+                    feedback.innerHTML = `<span class="correct-text">✓ Chính xác!</span>`;
+                } else {
+                    card.classList.add('incorrect-card');
+                    if (q.type === 'mcq') {
+                        feedback.innerHTML = `<span class="incorrect-text">✗ Sai. Đáp án đúng: ${q.options[q.answer]}</span>`;
+                    } else {
+                        feedback.innerHTML = `<span class="incorrect-text">✗ Sai. Đáp án đúng: ${q.answer}</span>`;
+                    }
+                }
+                feedback.style.display = 'block';
             });
 
-            card.innerHTML = `
-                <span class="question-text">Câu ${index + 1}: ${item.q}</span>
-                <div class="options">
-                    ${optionsHTML}
-                </div>
-                <div id="feedback-${index}"></div>
-            `;
-            quizContainer.appendChild(card);
-        });
-    }
-
-    function submitQuiz() {
-        let score = 0;
-        const resultDiv = document.getElementById('result');
-        
-        questions.forEach((item, index) => {
-            const selected = document.querySelector(`input[name="q${index}"]:checked`);
-            const feedback = document.getElementById(`feedback-${index}`);
-            const card = document.getElementById(`q-card-${index}`);
+            // Hiển thị tổng điểm
+            const resultDiv = document.getElementById('result');
+            resultDiv.style.display = 'block';
+            resultDiv.innerHTML = `Bạn đạt được: ${score} / ${total} điểm (${((score/total)*10).toFixed(1)} điểm)`;
             
-            // Reset styles
-            const labels = document.querySelectorAll(`[id^="label-${index}-"]`);
-            labels.forEach(l => l.className = '');
-
-            if (selected) {
-                const userAns = parseInt(selected.value);
-                if (userAns === item.correct) {
-                    score++;
-                    document.getElementById(`label-${index}-${userAns}`).className = 'correct';
-                } else {
-                    document.getElementById(`label-${index}-${userAns}`).className = 'incorrect';
-                    document.getElementById(`label-${index}-${item.correct}`).className = 'correct';
-                }
+            if(score === total) {
+                resultDiv.style.backgroundColor = '#e8f5e9';
+                resultDiv.style.color = '#2e7d32';
+            } else if (score >= total/2) {
+                resultDiv.style.backgroundColor = '#fff3cd';
+                resultDiv.style.color = '#856404';
             } else {
-                // Nếu không chọn, vẫn hiện đáp án đúng
-                document.getElementById(`label-${index}-${item.correct}`).className = 'correct';
-                feedback.innerHTML = `<p style="color:red; font-size:0.8em;">Bạn chưa trả lời câu này</p>`;
+                resultDiv.style.backgroundColor = '#ffebee';
+                resultDiv.style.color = '#c62828';
             }
-        });
 
-        resultDiv.style.display = 'block';
-        resultDiv.innerHTML = `Kết quả: ${score}/${questions.length} câu đúng (${((score/questions.length)*10).toFixed(2)} điểm)`;
-        resultDiv.style.backgroundColor = score > (questions.length/2) ? '#d4edda' : '#f8d7da';
-        
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+            // Ẩn nút Nộp bài, hiện nút Làm lại
+            document.getElementById('btn-submit').style.display = 'none';
+            document.getElementById('btn-reload').style.display = 'inline-block';
+            
+            // Cuộn lên kết quả
+            resultDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
 
-    window.onload = renderQuiz;
-</script>
-
+        // Khởi tạo bài tập khi load trang
+        window.onload = renderQuiz;
+    </script>
 </body>
 </html>
